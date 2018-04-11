@@ -1,4 +1,4 @@
-// 1) Write a program that accepts two strings as arguments.
+// Write a program that accepts two strings as arguments.
 // It should check if the one string is at least a partial
 // anagram of the other string, i.e.:
 // 
@@ -16,7 +16,7 @@ function anagrams(stringA, stringB) {
 	// if strings are of same length
 		// check for exact equivalence between cleaned, sorted strings
 	// else
-		// identify the shorter of the two strings (if applicable)
+		// identify the shorter of the two strings
 		// use buildCharMap to return charMaps for strings
 			// for each char in shortStr:
 				// if longStrCharMap[char] is less than shortStrCharMap[char]
@@ -75,11 +75,3 @@ function cleanSortStr(str) {
 }
 
 module.exports = anagrams;
-
-// 2) imagine turning this anagram library into an anagram server.
-// people writing their own games can contact your server to get back anagrams (say, requesting that they always be the
-// same length, requesting up to some given number of anagrams, specifying a minimum number of characters per word found,
-// etc), and write some narrative documentation about how people can use the service
-
-// - the code itself doesn't need to be runnable javascript or a particular language.
-// - pseudo code describing the algorithm in detail is fine too
