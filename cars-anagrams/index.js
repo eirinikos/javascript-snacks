@@ -17,36 +17,53 @@ function anagrams(stringA, stringB) {
 		// check for exact equivalence between cleaned, sorted strings
 	// else
 		// identify the shorter of the two strings (if applicable)
-			// for each char in the shorter string:
-				// if the other string doesn't include the char
+		// use buildCharMap to return charMaps for strings
+			// for each char in shortStr:
+				// if longStrCharMap[char] is less than shortStrCharMap[char]
 					// return false
-					// anagrams('thicc', 'thickly') should return false!!!
 	// return true
 
 	const cleanStrA = cleanSortStr(stringA);
 	const cleanStrB = cleanSortStr(stringB);
 	const cleanStrALength = cleanStrA.length;
 	const cleanStrBLength = cleanStrB.length;
-	let shorterStr;
-	let longerStr;
+	let shortStr;
+	let longStr;
 
 	if (cleanStrALength === cleanStrBLength) {
 		return cleanSortStr(stringA) === cleanSortStr(stringB);
 	} else {
-			shorterStr =
+			shortStr =
 				cleanStrA.length < cleanStrB.length ? cleanStrA : cleanStrB;
 
-			longerStr =
+			longStr =
 				cleanStrA.length > cleanStrB.length ? cleanStrA : cleanStrB;
 
-			for (let char of shorterStr) {
-				if (!longerStr.includes(char)) {
+			const shortStrCharMap = buildCharMap(shortStr);
+			const longStrCharMap = buildCharMap(longStr);
+
+			for (let char of shortStr) {
+				if (longStrCharMap[char] < shortStrCharMap[char]) {
 					return false;
 				}
 			}
 		}
 
 	return true;
+}
+
+function buildCharMap(str) {
+	// initialize empty charMap {}
+	// build charMap (iterate through str)
+	// return charMap
+
+	const charMap = {};
+
+	for (let char of str) {
+		charMap[char] = charMap[char] + 1 || 1;
+	}
+
+	return charMap;
 }
 
 function cleanSortStr(str) {
