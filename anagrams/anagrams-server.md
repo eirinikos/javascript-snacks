@@ -1,6 +1,6 @@
 # Anagrams server
 
-Let's turn the anagrams library into an anagrams server.
+Let's turn the [anagrams library](../anagrams/anagrams-library.js) into an anagrams server.
 People writing their own games can contact the server to request anagrams.
 
 For example, they can:
@@ -8,8 +8,6 @@ For example, they can:
 * request anagrams in a specific language
 * request anagrams of a specific length or range of lengths
 * request up to some given number of anagrams
-
-In regards to user input, the anagrams server will adhere to the same guidelines described in the [anagrams library](../anagrams-library.js); i.e., it will be case-insensitive and ignore spaces and punctuation.
 
 Below is some narrative documentation about how people might use this hypothetical service.
 
@@ -24,7 +22,6 @@ The documentation for this use case will include a list of available languages a
 The user's request must include the following required parameters:
 
 * **`string`**
-(character limit: TBD)
 
 The user's request can also include the following optional parameters:
 
@@ -33,6 +30,11 @@ The user's request can also include the following optional parameters:
 * **`return_count`**
 
 ##### Description of parameters
+
+**`string`** _(string)_
+
+* This param is the source string submitted by the user to the anagrams server.
+* Once received by the server, it will be converted to lower-case and stripped of any whitespace and punctuation.
 
 **`language`** _(string)_
 
@@ -81,4 +83,5 @@ TBD
 
 We'll also need to consider:
 * allowing the user to request anagrams for a list of strings (not just one)
-* error handling for invalid user input
+* implementing a character limit for the source string submitted by the user
+* implementing validation for the optional params submitted by the user
