@@ -11,7 +11,7 @@ For example, they can:
 
 In regards to user input, the anagrams server will adhere to the same guidelines described in the [anagrams library](../anagrams-library.js); i.e., it will be case-insensitive and ignore spaces and punctuation.
 
-Below is some narrative documentation about how people can use this hypothetical service.
+Below is some narrative documentation about how people might use this hypothetical service.
 
 ### Use Case #1: user wants to get anagrams that are verifiable words
 
@@ -43,7 +43,7 @@ The user's request can also include the following optional parameters:
 **`length`** _(hash)_
 
 * This param governs the length(s) of the anagrams returned by the server.
-* By default, the server will return anagrams of the same length as the original string
+* By default, the server will return anagrams of the same length as the original string.
 
 Within the `length` hash, the user can specify `minimum` and/or `maximum` values of character length. Here's an example of a request for anagrams between 8 and 40 characters long.
 
@@ -55,7 +55,7 @@ Within the `length` hash, the user can specify `minimum` and/or `maximum` values
 Alternatively, the user can specify a single `desired` length for the outputted anagrams, e.g.,:
 
     "length": {
-    	desired: 8
+    	"desired": 8
     }
 
 **`return_count`** _(integer)_
